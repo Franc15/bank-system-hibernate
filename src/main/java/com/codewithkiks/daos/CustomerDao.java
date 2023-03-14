@@ -1,6 +1,7 @@
 package com.codewithkiks.daos;
 
 import com.codewithkiks.models.Customer;
+import com.codewithkiks.util.EntityManagerUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
@@ -11,10 +12,10 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public class CustomerDao implements Dao<Customer> {
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public CustomerDao() {
-
+        entityManager = EntityManagerUtil.getEntityManager();
     }
 
     @Override

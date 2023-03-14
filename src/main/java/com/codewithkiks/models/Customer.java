@@ -1,23 +1,31 @@
 package com.codewithkiks.models;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name = "customers")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
     private String email;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "created_at")
     private Date dateCreated;
 
     public Customer() {
     }
 
-    public Customer(long id,
-                    String firstName,
+    public Customer(String firstName,
                     String lastName,
                     String email,
                     Date dateCreated) {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
