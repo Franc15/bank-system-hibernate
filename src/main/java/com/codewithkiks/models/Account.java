@@ -1,4 +1,4 @@
-package com.codewithkiks.model;
+package com.codewithkiks.models;
 
 import java.util.Date;
 

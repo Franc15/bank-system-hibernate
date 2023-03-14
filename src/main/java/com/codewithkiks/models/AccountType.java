@@ -1,4 +1,4 @@
-package com.codewithkiks.model;
+package com.codewithkiks.models;
 
 public class AccountType {
     private long id;

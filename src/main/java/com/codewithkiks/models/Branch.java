@@ -1,4 +1,4 @@
-package com.codewithkiks.model;
+package com.codewithkiks.models;
 
 public class Branch {
     private long id;

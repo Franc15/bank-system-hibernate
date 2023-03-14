@@ -1,4 +1,4 @@
-package com.codewithkiks.model;
+package com.codewithkiks.models;
 
 public class Address {
     private long id;
