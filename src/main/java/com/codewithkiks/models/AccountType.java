@@ -1,19 +1,24 @@
 package com.codewithkiks.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "account_types")
 public class AccountType {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String type;
+    @Column(name = "interest_rate")
     private double interestRate;
     private String description;
 
     public AccountType() {
     }
 
-    public AccountType(long id,
-                       String type,
+    public AccountType(String type,
                        double interestRate,
                        String description) {
-        this.id = id;
         this.type = type;
         this.interestRate = interestRate;
         this.description = description;
