@@ -1,6 +1,6 @@
-package com.codewithkiks;
+package com.codewithkiks.main;
 
-public class Main {
+public class Runner {
     public static void main(String[] args) {
 
     }
