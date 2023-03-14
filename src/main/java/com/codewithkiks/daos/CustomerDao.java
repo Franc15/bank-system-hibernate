@@ -1,5 +1,6 @@
 package com.codewithkiks.daos;
 
+import com.codewithkiks.helpers.JpaHelper;
 import com.codewithkiks.models.Customer;
 import com.codewithkiks.util.EntityManagerUtil;
 import jakarta.persistence.EntityManager;
@@ -34,29 +35,17 @@ public class CustomerDao implements Dao<Customer> {
         customer.setFirstName(Objects.requireNonNull(params[0], "First name cannot be null"));
         customer.setLastName(Objects.requireNonNull(params[1], "Last name cannot be null"));
         customer.setEmail(Objects.requireNonNull(params[2], "Email cannot be null"));
-        doInJpa(entityManager -> entityManager.merge(customer));
+        JpaHelper.doInJpa(entityManager -> entityManager.merge(customer), entityManager);
     }
 
     @Override
     public void save(Customer customer) {
-        doInJpa(entityManager -> entityManager.persist(customer));
+        JpaHelper.doInJpa(entityManager -> entityManager.persist(customer), entityManager);
     }
 
     @Override
     public void delete(Customer customer) {
-        doInJpa(entityManager -> entityManager.remove(customer));
+        JpaHelper.doInJpa(entityManager -> entityManager.remove(customer), entityManager);
     }
 
-    public void doInJpa(Consumer<EntityManager> action) {
-        EntityTransaction tx = entityManager.getTransaction();
-        try {
-            tx.begin();
-            action.accept(entityManager);
-            tx.commit();
-        }
-        catch (RuntimeException e) {
-            tx.rollback();
-            throw e;
-        }
-    }
 }

@@ -1,9 +1,18 @@
 package com.codewithkiks.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "address")
 public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "street_name")
     private String streetName;
+    @Column(name = "city_name")
     private String cityName;
+    @Column(name = "country")
     private String countryName;
 
     public Address() {

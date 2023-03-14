@@ -15,6 +15,9 @@ public class Customer {
     @Column(name = "last_name")
     private String lastName;
     private String email;
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
     @Temporal(TemporalType.DATE)
     @Column(name = "created_at")
     private Date dateCreated;
@@ -30,6 +33,26 @@ public class Customer {
         this.lastName = lastName;
         this.email = email;
         this.dateCreated = dateCreated;
+    }
+
+    public Customer(String firstName,
+                    String lastName,
+                    String email,
+                    Address address,
+                    Date dateCreated) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+        this.dateCreated = dateCreated;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public long getId() {
