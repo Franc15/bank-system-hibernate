@@ -1,17 +1,23 @@
 package com.codewithkiks.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "branches")
 public class Branch {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
+    @ManyToOne
+    @JoinColumn(name = "address_id")
     private Address address;
 
     public Branch() {
     }
 
-    public Branch(long id,
-                  String name,
+    public Branch(String name,
                   Address address) {
-        this.id = id;
         this.name = name;
         this.address = address;
     }

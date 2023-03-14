@@ -15,14 +15,15 @@ public class CustomerTests {
 
     @BeforeAll
     public static void setUp() {
-        System.out.println("Setting up Tests...");
+        System.out.println("Setting up Customer Tests...");
         customerDao = new CustomerDao();
         addressDao = new AddressDao();
+        System.out.println("Setup success.");
     }
 
     @Test
     public void testAddCustomer() {
-        System.out.println("Running add customer test...");
+        System.out.println("Running Test (testAddCustomer)...");
         Address address = new Address("123 King Rd.", "Nairobi", "Kenya");
         addressDao.save(address);
         Customer customer = new Customer(
@@ -37,6 +38,8 @@ public class CustomerTests {
 
     @AfterAll
     public static void tearDown() {
+        System.out.println("Customer tests cleaning up...");
         customerDao = null;
+        addressDao = null;
     }
 }
