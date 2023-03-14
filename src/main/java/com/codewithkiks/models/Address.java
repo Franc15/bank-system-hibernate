@@ -18,11 +18,9 @@ public class Address {
     public Address() {
     }
 
-    public Address(long id,
-                   String streetName,
+    public Address(String streetName,
                    String cityName,
                    String countryName) {
-        this.id = id;
         this.streetName = streetName;
         this.cityName = cityName;
         this.countryName = countryName;

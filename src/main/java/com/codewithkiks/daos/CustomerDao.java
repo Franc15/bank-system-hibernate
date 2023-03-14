@@ -4,13 +4,11 @@ import com.codewithkiks.helpers.JpaHelper;
 import com.codewithkiks.models.Customer;
 import com.codewithkiks.util.EntityManagerUtil;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 public class CustomerDao implements Dao<Customer> {
     private final EntityManager entityManager;
